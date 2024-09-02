@@ -1,3 +1,6 @@
+/**
+ * @author mago
+ */
 package gestionsueldos.test;
 
 public class Main {
