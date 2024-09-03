@@ -3,6 +3,10 @@
  */
 package gestionsueldos.dominio;
 
+import java.util.List;
+
+import gestionsueldos.util.Constantes;
+
 public class Empleado {
 	private int id;
 	private int legajo;
@@ -11,7 +15,7 @@ public class Empleado {
 	private int antiguedad;
 	
 	/**
-	 * Constructor clase Empleado
+	 * Constructor de la clase Empleado
 	 * @param id
 	 * @param legajo
 	 * @param nombre
@@ -24,6 +28,49 @@ public class Empleado {
 		this.nombre = nombre;
 		this.cantidad_hijos = cantidad_hijos;
 		this.antiguedad = antiguedad;
+	}
+	
+	/**
+	 * 
+	 * @param antiguedad
+	 * @return
+	 */
+	protected double obtenerPagoPorAntiguedad(int antiguedad) {
+		return antiguedad * Constantes.ANTIGUEDAD;
+	}
+		
+	/**
+	 * 
+	 * @param cantidad_hijos
+	 * @return
+	 */
+	protected double obtenerPagoPorHijoACargo(int cantidad_hijos) {
+		return cantidad_hijos * Constantes.HIJO_A_CARGO;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	/*public Double obtenerSalario() {
+		return 0.0;
+	}*/
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public String toString() {
+		return "";
+	}
+	
+	/**
+	 * 
+	 * @param anio
+	 * @return
+	 */
+	public List mostrarEmpleadoAntiguedad(int anio) {
+		return null;	
 	}
 	
 	/**
