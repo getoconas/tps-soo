@@ -71,9 +71,8 @@ public abstract class Empleado {
 	 * @return informacion de la clase empleado
 	 */
 	public String toString() {
-		return "***************\n" +
+		return "\n" +
 				"Legajo: " + this.legajo + " - Empleado: " + this.nombre + "\n";
-				
 	}
 		
 	/**
