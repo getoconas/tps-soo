@@ -1,13 +1,13 @@
 /**
- * @author mago
+ * @author Gaston Toconas
  */
 package gestionsueldos.dominio;
 
-import java.util.List;
+import gestionsueldos.util.Importes;
 
 public class Administrativo extends Empleado {
 	private int categoria;
-	
+		
 	/**
 	 * Constructor de la clase Administrativo
 	 * @param id
@@ -20,33 +20,42 @@ public class Administrativo extends Empleado {
 		super(id, legajo, nombre, cantidad_hijos, antiguedad);
 		this.categoria = categoria;
 	}
-
-	/**
-	 * 
-	 * @return
-	 */
-	/*@Override
-	public Double obtenerSalario() {
-		return 0.0;
-	}*/
 	
 	/**
 	 * 
-	 * @return
 	 */
 	@Override
-	public String toString() {
-		return "";
+	public double calcularRemunerativos() {
+		switch (this.categoria) {
+			case 1:
+				return this.obtenerCalculoCategoria(Importes.CATEGORIA_1);
+			case 2:
+				return this.obtenerCalculoCategoria(Importes.CATEGORIA_2);
+			case 3:
+				return this.obtenerCalculoCategoria(Importes.CATEGORIA_3);
+			case 4:
+				return this.obtenerCalculoCategoria(Importes.CATEGORIA_4);
+			case 5:
+				return this.obtenerCalculoCategoria(Importes.CATEGORIA_5);
+			default:
+				return Importes.SUELDO_BASICO + super.calcularPagoPorAntiguedad();
+		}
 	}
 	
 	/**
 	 * 
-	 * @param anio
+	 * @param categoria
 	 * @return
 	 */
+	private double obtenerCalculoCategoria(double categoria) {
+		return Importes.SUELDO_BASICO + categoria + super.calcularPagoPorAntiguedad();
+	}
+	
 	@Override
-	public List mostrarEmpleadoAntiguedad(int anio) {
-		return null;	
+	public String toString() {
+		return super.toString() + 
+				"Categoria: " + this.categoria + "\n" +
+				"Sueldo Neto: $" + String.format("%.2f",this.calcularSueldoNeto());
 	}
 	
 	/**
