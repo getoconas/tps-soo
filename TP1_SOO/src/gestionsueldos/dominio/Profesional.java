@@ -14,15 +14,11 @@ public class Profesional extends Empleado {
 	 * @param nombre
 	 * @param cantidad_hijos
 	 * @param antiguedad
-	 * @param titulo
 	 */
 	public Profesional(int id, int legajo, String nombre, int cantidad_hijos, int antiguedad) {
 		super(id, legajo, nombre, cantidad_hijos, antiguedad);
 	}
 
-	/**
-	 * 
-	 */
 	@Override
 	public double calcularRemunerativos() {
 		return Importes.SUELDO_BASICO + Importes.TITULO + super.calcularPagoPorAntiguedad();
@@ -30,6 +26,7 @@ public class Profesional extends Empleado {
 	
 	/**
 	 * 
+	 * @return informacion de la clase profesional
 	 */
 	@Override
 	public String toString() {

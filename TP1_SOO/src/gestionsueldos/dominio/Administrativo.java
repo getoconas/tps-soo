@@ -20,10 +20,7 @@ public class Administrativo extends Empleado {
 		super(id, legajo, nombre, cantidad_hijos, antiguedad);
 		this.categoria = categoria;
 	}
-	
-	/**
-	 * 
-	 */
+
 	@Override
 	public double calcularRemunerativos() {
 		switch (this.categoria) {
@@ -45,12 +42,16 @@ public class Administrativo extends Empleado {
 	/**
 	 * 
 	 * @param categoria
-	 * @return
+	 * @return remunerativos bonificables de acuerdo al tipo de categoria del empleado administrativo
 	 */
 	private double obtenerCalculoCategoria(double categoria) {
 		return Importes.SUELDO_BASICO + categoria + super.calcularPagoPorAntiguedad();
 	}
 	
+	/**
+	 * 
+	 * @return informacion de la clase administrativo
+	 */
 	@Override
 	public String toString() {
 		return super.toString() + 

@@ -30,13 +30,13 @@ public abstract class Empleado {
 
 	/**
 	 * 
-	 * @return
+	 * @return remunerativos bonificables
 	 */
 	public abstract double calcularRemunerativos();
 	
 	/**
 	 * 
-	 * @return
+	 * @return pago por antiguedad
 	 */
 	public double calcularPagoPorAntiguedad() {
 		return this.antiguedad * Importes.ANTIGUEDAD;
@@ -44,7 +44,7 @@ public abstract class Empleado {
 		
 	/**
 	 * 
-	 * @return
+	 * @return pago por hijos a cargo
 	 */
 	public double calcularPagoPorHijoACargo() {
 		return this.cantidad_hijos * Importes.HIJO_A_CARGO;
@@ -52,7 +52,7 @@ public abstract class Empleado {
 
 	/**
 	 * 
-	 * @return
+	 * @return descuentos realizados a los remunerativos bonificables
 	 */
 	public double calcularDescuentos() {
 		return this.calcularRemunerativos() * Importes.DESCUENTO;
@@ -60,7 +60,7 @@ public abstract class Empleado {
 
 	/**
 	 * 
-	 * @return
+	 * @return sueldo neto a cobrar
 	 */
 	public double calcularSueldoNeto() {
 		return this.calcularRemunerativos() + this.calcularPagoPorHijoACargo() - this.calcularDescuentos();
@@ -68,12 +68,11 @@ public abstract class Empleado {
 		
 	/**
 	 * 
-	 * @return
+	 * @return informacion de la clase empleado
 	 */
 	public String toString() {
-		return "*********\n" +
-				"Empleado: " + this.nombre + "\n" +
-				"Legajo: " + this.legajo + "\n";
+		return "***************\n" +
+				"Legajo: " + this.legajo + " - Empleado: " + this.nombre + "\n";
 				
 	}
 		
