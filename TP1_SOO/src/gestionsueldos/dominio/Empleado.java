@@ -1,18 +1,16 @@
 /**
- * @author mago
+ * @author Gaston Toconas
  */
 package gestionsueldos.dominio;
 
-import java.util.List;
+import gestionsueldos.util.Importes;
 
-import gestionsueldos.util.Constantes;
-
-public class Empleado {
-	private int id;
-	private int legajo;
-	private String nombre;
-	private int cantidad_hijos;
-	private int antiguedad;
+public abstract class Empleado {
+	protected int id;
+	protected int legajo;
+	protected String nombre;
+	protected int cantidad_hijos;
+	protected int antiguedad;
 	
 	/**
 	 * Constructor de la clase Empleado
@@ -29,50 +27,56 @@ public class Empleado {
 		this.cantidad_hijos = cantidad_hijos;
 		this.antiguedad = antiguedad;
 	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public abstract double calcularRemunerativos();
 	
 	/**
 	 * 
-	 * @param antiguedad
 	 * @return
 	 */
-	protected double obtenerPagoPorAntiguedad(int antiguedad) {
-		return antiguedad * Constantes.ANTIGUEDAD;
+	public double calcularPagoPorAntiguedad() {
+		return this.antiguedad * Importes.ANTIGUEDAD;
 	}
 		
 	/**
 	 * 
-	 * @param cantidad_hijos
 	 * @return
 	 */
-	protected double obtenerPagoPorHijoACargo(int cantidad_hijos) {
-		return cantidad_hijos * Constantes.HIJO_A_CARGO;
+	public double calcularPagoPorHijoACargo() {
+		return this.cantidad_hijos * Importes.HIJO_A_CARGO;
 	}
-	
+
 	/**
 	 * 
 	 * @return
 	 */
-	/*public Double obtenerSalario() {
-		return 0.0;
-	}*/
-	
+	public double calcularDescuentos() {
+		return this.calcularRemunerativos() * Importes.DESCUENTO;
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public double calcularSueldoNeto() {
+		return this.calcularRemunerativos() + this.calcularPagoPorHijoACargo() - this.calcularDescuentos();
+	}
+		
 	/**
 	 * 
 	 * @return
 	 */
 	public String toString() {
-		return "";
+		return "*********\n" +
+				"Empleado: " + this.nombre + "\n" +
+				"Legajo: " + this.legajo + "\n";
+				
 	}
-	
-	/**
-	 * 
-	 * @param anio
-	 * @return
-	 */
-	public List mostrarEmpleadoAntiguedad(int anio) {
-		return null;	
-	}
-	
+		
 	/**
 	 * @return the id
 	 */
