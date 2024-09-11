@@ -39,16 +39,29 @@ public class ProfessionalTest {
     }
 
     @Test
-    public void getPaymentChildrenTest() {
+    public void getPaymentChildrenTest_WithChildren() {
         System.out.println("Calculando salario familiar...");
         Double result = p1.getChildren() * Amount.CHILD;
         assertEquals(result, p1.getPaymentChildren());
     }
 
     @Test
-    public void getPaymentWithoutChildrenTest() {
+    public void getPaymentChildrenTest_NoChildren() {
         System.out.println("Calculando salario familiar...");
         assertEquals(0, p2.getPaymentChildren());
+    }
+
+    @Test
+    public void getPaymentSeniority_WithSeniority() {
+        System.out.println("Calculando antiguedad...");
+        Double result = p1.getSeniority() * Amount.SENIORITY;
+        assertEquals(result, p1.getPaymentSeniority());
+    }
+
+    @Test
+    public void getPaymentSeniority_NoSeniority() {
+        System.out.println("Calculando antiguedad...");
+        assertEquals(0, p2.getPaymentSeniority());
     }
 
     @Test

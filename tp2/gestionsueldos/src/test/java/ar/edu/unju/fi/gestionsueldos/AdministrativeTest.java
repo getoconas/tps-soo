@@ -40,35 +40,35 @@ public class AdministrativeTest {
     }
 
     @Test
-    public void getRemunerativeEqualsCategory1Test() {
+    public void getRemunerativeTest_EqualsCategory1() {
         System.out.println("Calculando remunerativos...");
         Double result = Amount.BASIC_SALARY + Amount.CATEGORY1 + (a1.getSeniority() * Amount.SENIORITY);
         assertEquals(result, a1.getRemunerative());
     }
 
     @Test
-    public void getRemunerativeEqualsCategory2Test() {
+    public void getRemunerativeTest_EqualsCategory2() {
         System.out.println("Calculando remunerativos...");
         Double result = Amount.BASIC_SALARY + Amount.CATEGORY2 + (a2.getSeniority() * Amount.SENIORITY);
         assertEquals(result, a2.getRemunerative());
     }
 
     @Test
-    public void getRemunerativeEqualsCategory3Test() {
+    public void getRemunerativeTest_EqualsCategory3() {
         System.out.println("Calculando remunerativos...");
         Double result = Amount.BASIC_SALARY + Amount.CATEGORY3 + (a3.getSeniority() * Amount.SENIORITY);
         assertEquals(result, a3.getRemunerative());
     }
 
     @Test
-    public void getRemunerativeEqualsCategory4Test() {
+    public void getRemunerativeTest_EqualsCategory4() {
         System.out.println("Calculando remunerativos...");
         Double result = Amount.BASIC_SALARY + Amount.CATEGORY4 + (a4.getSeniority() * Amount.SENIORITY);
         assertEquals(result, a4.getRemunerative());
     }
 
     @Test
-    public void getRemunerativeEqualsCategory5Test() {
+    public void getRemunerativeTest_EqualsCategory5() {
         System.out.println("Calculando remunerativos...");
         Double result = Amount.BASIC_SALARY + Amount.CATEGORY5 + (a5.getSeniority() * Amount.SENIORITY);
         assertEquals(result, a5.getRemunerative());
